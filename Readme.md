@@ -19,8 +19,6 @@ delivery.rb     # Defines delivery rules and calculates delivery costs.
 offers.rb       # Implements special offers and discounts.
 product.rb      # Manages product details and product catalog.
 testing.rb      # Demonstrates the usage of the system.
-Gemfile         # Defines dependencies for the project.
-Gemfile.lock    # Locks the versions of dependencies.
 ```
 
 ---
@@ -54,6 +52,28 @@ Total: 90.32
 
 ---
 
+## Assumptions
+
+1. **Product Codes Are Unique**:
+   - Each product in the catalog has a unique code (e.g., `R01`, `G01`).
+   - That's why I have used find_by_code
+
+2. **Delivery Rules Are Non-Overlapping**:
+   - Delivery rules are defined in such a way that only one rule applies to a given subtotal.
+
+3. **Offers Are Applied Independently**:
+   - Each offer is applied independently of others
+
+4. **No Negative Totals**:
+   - Discounts cannot exceed the subtotal, ensuring that the total cost is never negative.
+
+5. **Delivery Cost Is Always Non-Negative**:
+   - Delivery costs are calculated based on the subtotal after discounts, and they default to `0` if no rule applies.
+
+6. **Red Widget Offer**:
+   - The "Red Widget" (`R01`) offer applies to every second item in the basket, and the discount is calculated as half the price of one Red Widget.
+
+---
 ## Code Overview
 
 ### 1. **Product Management** (product.rb)
