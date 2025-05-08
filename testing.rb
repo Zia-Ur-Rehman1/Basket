@@ -41,3 +41,11 @@ basket.add_items(['B01','B01','R01', 'R01', 'R01', 'RO1'])
 basket.remove_items(['B01'])
 basket.remove_items(['G01'])
 puts "Total: #{basket.total}"
+
+basket.clear_items
+basket.remove_items(['B01'])
+basket.remove_items([''])
+basket.remove_items([])
+basket.add_items([])
+basket.add_items([''])
+puts "Total: #{basket.total}"
